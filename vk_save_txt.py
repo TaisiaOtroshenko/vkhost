@@ -13,7 +13,7 @@ count = 100
 ids = []
 for j in range(count):
     ids.append(str(id_current-j))
-    ids = ','.join(ids)
+ids = ','.join(ids)
 print(ids)
 
 #обращение к API
