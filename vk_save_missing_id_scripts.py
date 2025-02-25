@@ -23,8 +23,9 @@ code = code + 'return [API.messages.getById({"message_ids":arr0}).items@.id, API
 
 
 # сохранение истории сообщений используя vkscripts
+#проверь, что при первом запуске в файле missing_ids.json лежит '[]'
 # при повторном запуске уменьшить id_current на 5000. именно столько обрабатывается за раз
-id_current = 120000
+id_current = 100000
 count = 100 # 100 максимум
 command_count = 5 # 5 максимум
 missing_ids = []
@@ -70,10 +71,7 @@ for i in range (10):
 
 
 #добавление новых ids в файл
-#проверь, что при первом запуске в файле лежит '[]'
 print (missing_ids, '\n')
 file_ids = json.load(open('missing_ids.json','r', encoding='utf-8'))
-print(file_ids)
 file_ids = file_ids + missing_ids
-print(file_ids)
-json.dump(missing_ids,open('missing_ids.json','w', encoding='utf-8'))
+json.dump(file_ids,open('missing_ids.json','w', encoding='utf-8'))
