@@ -1,9 +1,10 @@
 import requests
 import json
 from vk_tokens import *
-# работающая версия параметра "code" из web-редактора "return[API.messages.getById({"message_ids": "544117,544116","extended":"1"}),API.messages.getById({"message_ids": 544116}).items];"
 
-#сохранение истории сообщений используя vkscripts
+# сохранение истории сообщений используя vkscripts
+# сохраняет полную json структуру сообщения и ее авторов
+
 id_current = 1253100
 count = 100 # 100 максимум
 command_count = 9 # 9 максимум

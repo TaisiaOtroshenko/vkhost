@@ -3,27 +3,8 @@ import json
 import time
 from vk_tokens import *
 
-# работающие примеры параметра "code" из web-редактора 
-    # "return[API.messages.getById({"message_ids": "544117,544116","extended":"1"}),API.messages.getById({"message_ids": 544116}).items];"
-    # "var cur = '1253100'; var arr = ""; while (cur != '1253000') { arr = arr+cur+","; cur = cur - 1;} return API.messages.getById({"message_ids":arr}).items@.id;"
-    # "var cur = 125000; var arr0 = ""; while (cur != 124900) { arr0 = arr0+cur+","; cur = cur - 1;} var cur = 124900; var arr1 = ""; while (cur != 124800) { arr1 = arr1+cur+","; cur = cur - 1;}return[arr0, arr1];"
-#образец генерации ids. работает, не трогай
-#code = 'var cur = 125000; var arr0 = ""; while (cur != 124900) { arr0 = arr0+cur+","; cur = cur - 1;} var cur = 124900; var arr1 = ""; while (cur != 124800) { arr1 = arr1+cur+","; cur = cur - 1;} return[arr0, arr1];'
-#code = code.replace('+','%2b')
-
-#регрессионное тестирование "генерация code"
-'''
-# рукописное создание и запрос двух массивов. 
-# можно вывести для сверки, что я не сломала символы в сненерированном запросе. при command_count = 2 запросы должны идеально совпадать.
-
-code = 'var cur = 125000; var arr0 = ""; while (cur != 124900) { arr0 = arr0+cur+","; cur = cur - 1;} var cur = 124900; var arr1 = ""; while (cur != 124800) { arr1 = arr1+cur+","; cur = cur - 1;}'
-code = code.replace('+','%2b')
-code = code + 'return [API.messages.getById({"message_ids":arr0}).items@.id, API.messages.getById({"message_ids":arr1}).items@.id];'
-'''
-
-
 # сохранение истории сообщений используя vkscripts
-#проверь, что при первом запуске в файле missing_ids.json лежит '[]'
+# перед запуском проверить, что при первом запуске в файле missing_ids.json лежит '[]' или массив ids
 # при повторном запуске уменьшить id_current на 5000. именно столько обрабатывается за раз
 id_current = 100000
 count = 100 # 100 максимум

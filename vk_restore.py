@@ -4,7 +4,8 @@ import json
 from vk_tokens import *
 
 
-#выбор сообщений
+# восстановление всех сообщений из файла missing_ids.json
+# одноразовый запуск, среди вывода о восстановленнии данных в консоли ищем "True"
 
 file_ids = json.load(open('missing_ids.json','r', encoding='utf-8'))
 command_count = 25 # 25 максимум
